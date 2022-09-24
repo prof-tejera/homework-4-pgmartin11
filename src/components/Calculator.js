@@ -5,9 +5,12 @@ import Screen from "./Screen";
 
 const Calculator = () => {
   const [number, addDigit] = useState(0),
-    [buffer, updateBuffer] = useState(0),
+    [buffer, updateBuffer] = useState(null),
     [displayValue, updateDisplay] = useState(0),
     [savedOperation, updateOperation] = useState(null);
+
+  const doCalc = (op) => {
+  }
 
   const doOperation = (operation) => {
     switch (operation) {
@@ -26,8 +29,37 @@ const Calculator = () => {
       default:
     }
     addDigit(0);
-    updateBuffer(0);
-    updateOperation();
+    updateBuffer(null);
+    updateOperation(null);
+  }
+
+  const doIntermediateOperaton = (operation) => {
+    let res;
+    switch (savedOperation) {
+      case '+':
+        res = buffer + number;
+        break;
+      case '/':
+        res = number ? buffer / number : 0;
+        break;
+      case 'x':
+        res = buffer * number;
+        break;
+      case '-':
+        res = buffer - number;
+        break;  
+      default:
+    }
+
+    if (buffer === null) {
+      updateBuffer(number);
+      updateDisplay(number);
+    } else {
+      updateBuffer(res);
+      updateDisplay(res);
+    }
+
+    addDigit(0);
   }
 
   const handleOperationClick = (op) => {
@@ -42,8 +74,7 @@ const Calculator = () => {
       case '/':
       case 'x':
       case '-':
-        updateBuffer(number);
-        addDigit(0);
+        doIntermediateOperaton(savedOperation);
         updateOperation(op);
         break;
       default:
@@ -58,10 +89,10 @@ const Calculator = () => {
   };
 
   const clearAll = () => {
-      addDigit(0);
-      updateBuffer(0);
-      updateDisplay(0);
-      updateOperation();
+    addDigit(0);
+    updateBuffer(null);
+    updateDisplay(0);
+    updateOperation();
   }
 
   return (
