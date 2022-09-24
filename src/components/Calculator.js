@@ -58,6 +58,7 @@ const Calculator = () => {
     updateOperation(null);
   }
 
+  // event handlers
   const handleOperationClick = (op) => {
     switch(op) {
       case '=':
