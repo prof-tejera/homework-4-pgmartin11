@@ -9,57 +9,53 @@ const Calculator = () => {
     [displayValue, updateDisplay] = useState(0),
     [savedOperation, updateOperation] = useState(null);
 
-  const doCalc = (op) => {
-  }
-
-  const doOperation = (operation) => {
+  // helper functions
+  const doCalc = (operation, operand1, operand2) => {
+    let res;
     switch (operation) {
       case '+':
-        updateDisplay(buffer + number);
+        res = operand1 + operand2;
         break;
       case '/':
-        updateDisplay(number ? buffer / number : 0);
+        res = operand1 ? operand1 / operand2 : 0;
         break;
       case 'x':
-        updateDisplay(buffer * number);
+        res = operand1 * operand2;
         break;
       case '-':
-        updateDisplay(buffer - number);
+        res = operand1 - operand2;
         break;  
       default:
     }
+
+    return res;
+  }
+
+  const doOperation = (operation) => {
+    updateDisplay(doCalc(operation, buffer, number));
     addDigit(0);
     updateBuffer(null);
     updateOperation(null);
   }
 
   const doIntermediateOperaton = (operation) => {
-    let res;
-    switch (savedOperation) {
-      case '+':
-        res = buffer + number;
-        break;
-      case '/':
-        res = number ? buffer / number : 0;
-        break;
-      case 'x':
-        res = buffer * number;
-        break;
-      case '-':
-        res = buffer - number;
-        break;  
-      default:
-    }
-
     if (buffer === null) {
       updateBuffer(number);
       updateDisplay(number);
     } else {
+      let res = doCalc(operation, buffer, number);
       updateBuffer(res);
       updateDisplay(res);
     }
 
     addDigit(0);
+  }
+
+  const clearAll = () => {
+    addDigit(0);
+    updateBuffer(null);
+    updateDisplay(0);
+    updateOperation(null);
   }
 
   const handleOperationClick = (op) => {
@@ -81,19 +77,11 @@ const Calculator = () => {
     }
   };
 
-  // helper functions
   const handleNumberClick = (digit) => {
     const newValue = (10 * number) + digit;
     addDigit(newValue);
     updateDisplay(newValue);
   };
-
-  const clearAll = () => {
-    addDigit(0);
-    updateBuffer(null);
-    updateDisplay(0);
-    updateOperation();
-  }
 
   return (
     <div>
