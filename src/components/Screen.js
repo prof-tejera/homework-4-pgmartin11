@@ -3,7 +3,7 @@ const Screen = ({ value }) => {
     <div
       style={{
         border: "1px solid black",
-        width: 300,
+        width: '100%',
         height: 70,
         textAlign: "right",
         marginBottom: 10,

@@ -94,11 +94,14 @@ const Calculator = () => {
           <Number value={2} onClick={handleNumberClick} />
           <Number value={3} onClick={handleNumberClick} />
           <Number value={4} onClick={handleNumberClick} />
+        </div>
+        <div style={{ marginLeft: 5 }}>
           <Number value={5} onClick={handleNumberClick} />
           <Number value={6} onClick={handleNumberClick} />
           <Number value={7} onClick={handleNumberClick} />
           <Number value={8} onClick={handleNumberClick} />
           <Number value={9} onClick={handleNumberClick} />
+          <Operation value="clear" onClick={handleOperationClick} />
         </div>
         <div style={{ paddingLeft: 10 }}>
           <Operation value="+" onClick={handleOperationClick} />
@@ -106,7 +109,6 @@ const Calculator = () => {
           <Operation value="x" onClick={handleOperationClick} />
           <Operation value="-" onClick={handleOperationClick} />
           <Operation value="=" onClick={handleOperationClick} />
-          <Operation value="clear" onClick={handleOperationClick} />
         </div>
       </div>
     </div>
