@@ -1,6 +1,7 @@
 const Operation = ({ value, onClick }) => {
   return (
     <div
+      className="operation"
       style={{
         padding: 10,
         border: "1px solid black",

@@ -1,6 +1,7 @@
 const Number = ({ value, onClick }) => {
   return (
     <div
+      className="button"
       style={{
         padding: 10,
         border: "1px solid black",

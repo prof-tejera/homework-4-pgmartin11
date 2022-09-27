@@ -85,7 +85,13 @@ const Calculator = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        padding: 20,
+        border: "1px solid gray",
+        borderRadius: 5
+      }}
+    >
       <Screen value={displayValue} />
       <div style={{ display: "flex" }}>
         <div>
