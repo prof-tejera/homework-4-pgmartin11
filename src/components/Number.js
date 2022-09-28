@@ -1,7 +1,9 @@
+import "./Number.css";
+
 const Number = ({ value, onClick }) => {
   return (
     <div
-      className="button"
+      className="number-btn"
       style={{
         padding: 10,
         border: "1px solid black",
