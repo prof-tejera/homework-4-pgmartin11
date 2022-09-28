@@ -26,6 +26,11 @@ const Calculator = () => {
         res = operand1 - operand2;
         break;  
       default:
+        /*
+         * Handle case where only one operand entered 
+         * followed by press of equals button
+         */
+        res = operand2;
     }
 
     return res;
