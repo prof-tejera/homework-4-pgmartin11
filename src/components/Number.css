@@ -1,0 +1,7 @@
+.number-btn {
+  background-color: #ccdffc;
+}
+
+.number-btn:active {
+  background-color: #91bdff;
+}
