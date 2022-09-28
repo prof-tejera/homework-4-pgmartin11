@@ -1,7 +1,9 @@
+import "./Operation.css";
+
 const Operation = ({ value, onClick }) => {
   return (
     <div
-      className="operation"
+      className="operation-btn"
       style={{
         padding: 10,
         border: "1px solid black",
