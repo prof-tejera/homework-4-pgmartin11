@@ -109,7 +109,7 @@ const Calculator = () => {
           <Number value={9} onClick={handleNumberClick} />
           <Operation value="clear" onClick={handleOperationClick} />
         </div>
-        <div style={{ paddingLeft: 10 }}>
+        <div style={{ marginLeft: 5 }}>
           <Operation value="+" onClick={handleOperationClick} />
           <Operation value="/" onClick={handleOperationClick} />
           <Operation value="x" onClick={handleOperationClick} />
