@@ -1,0 +1,6 @@
+.operation-btn {
+  background-color: #dcdcdc;
+}
+.operation-btn:active {
+  background-color: #9d9fa1;
+}
