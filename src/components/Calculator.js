@@ -17,7 +17,7 @@ const Calculator = () => {
         res = operand1 + operand2;
         break;
       case '/':
-        res = operand1 ? operand1 / operand2 : 0;
+        res = operand1 / operand2;
         break;
       case 'x':
         res = operand1 * operand2;
